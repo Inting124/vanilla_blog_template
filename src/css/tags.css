@@ -1,0 +1,108 @@
+/*
+ * 标签页样式
+ * - tags: 标签列表页容器
+ * - h1~h6: 作用域隔离的标题等级（不影响页面其他部分）
+ * - tag-category: 点击标签后跳转的标签分类页
+ */
+.tags {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.tags__title {
+  text-align: left;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 标签行容器 */
+
+.tags__card {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+.tags__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  align-items: baseline;
+}
+
+/* 标签作用域内的标题等级——仅在此容器内生效 */
+.tags h1,
+.tags h2,
+.tags h3,
+.tags h4,
+.tags h5,
+.tags h6 {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.tags__row h1 {
+  font-size: 2.2rem;
+  color: #458588;
+}
+.tags__row h2 {
+  font-size: 1.8rem;
+  color: #569c9e;
+}
+.tags__row h3 {
+  font-size: 1.4rem;
+  color: #67b0b2;
+}
+.tags__row h4 {
+  font-size: 1.1rem;
+  color: #78c4c6;
+}
+.tags__row h5 {
+  font-size: 0.9rem;
+  color: #83a598;
+}
+.tags__row h6 {
+  font-size: 0.75rem;
+  color: #a89984;
+}
+.tags a {
+  color: inherit;
+}
+.tags a:hover {
+  text-decoration: underline;
+}
+
+/* 标签分类页 */
+.tag-category {
+  max-width: var(--max-width);
+}
+.tag-category__title {
+  text-align: left;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+.tag-category__content {
+  padding-left: var(--space-md);
+}
+.tag-category__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tag-category__list li {
+  margin-bottom: var(--space-sm);
+  font-size: 1.05rem;
+}
+.tag-category__back {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.tag-category a {
+  color: var(--color-text);
+}

@@ -1,0 +1,40 @@
+/*
+ * CSS 自定义属性（设计令牌）
+ */
+:root {
+  --color-bg: #ebdbb2;
+  --color-bg-secondary: #e0cfa3;
+  --color-text: #282828;
+  --color-text-secondary: #665c54;
+  --color-primary: #282828;
+  --color-accent: #458588;
+  --color-border: #d5c4a1;
+  --color-surface: #f3e9cb;
+  --color-card-bg: #faf3dd;
+  --color-code-bg: #e0cfa3;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+  --line-height: 1.75;
+  --max-width: 720px;
+  --max-width-wide: 960px;
+  --nav-height: 60px;
+  --radius: 8px;
+}
+
+:root.dark {
+  --color-bg: #282828;
+  --color-bg-secondary: #32302f;
+  --color-text: #ebdbb2;
+  --color-text-secondary: #a89984;
+  --color-primary: #ebdbb2;
+  --color-accent: #458588;
+  --color-border: #504945;
+  --color-surface: #32302f;
+  --color-card-bg: #3c3836;
+  --color-code-bg: #1d2021;
+}

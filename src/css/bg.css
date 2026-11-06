@@ -1,0 +1,59 @@
+/* 页面背景 — 线框地球（动画全部使用 transform，走 GPU 合成） */
+
+/* ---------- 网格颜色变量 ---------- */
+:root {
+  --mesh-line: rgba(40, 40, 40, 0.12); /* 夜半球：主文字色的极淡版本 */
+  --mesh-node: rgba(69, 133, 136, 0.32); /* 昼半球：主蓝色，保持整体统一 */
+}
+
+:root.dark {
+  --mesh-line: rgba(235, 219, 178, 0.14);
+  --mesh-node: rgba(69, 133, 136, 0.42);
+}
+
+/* ---------- 基底纯色 ---------- */
+/* 背景层均超出视口边缘，裁剪横向滚动条；clip 不创建滚动容器，不影响吸顶 */
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background-color: #ebdbb2;
+}
+
+:root.dark body {
+  background-color: #282828;
+}
+
+/* ---------- 线框地球：容器定位；网格由 src/globe.ts 以 Canvas 真 3D 投影渲染 ---------- */
+.bg-globe {
+  /* 布局优先级（调整参数时不得破坏此顺序）：
+     1. 左侧最外弧在 720px 内容框左缘左侧：左缘 = 77%W - R = 50%W - 420px，恒靠左 60px
+     2. 南北极点在页面外：极点投影距球心约 0.97R，R > 0.513H 恒成立
+     3. 右侧中间弧在画面外：右缘 = 77%W + R = W + 420px 恒成立
+     4. 极地在页面外：纬线画到 ±75°，最高点约 0.94R，R > 0.532H 恒成立
+     5. 右侧边缘全部在页面外：同 3 */
+  --R: calc(27vw + 420px);
+  position: fixed;
+  left: 77%; /* 球心偏右，右半球出血到画面外 */
+  top: 50%;
+  width: calc(var(--R) * 2);
+  height: calc(var(--R) * 2);
+  translate: -50% -50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-globe__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 窄屏：球体略收小（南北极仍在屏外） */
+@media (max-width: 640px) {
+  .bg-globe {
+    --R: 75vh;
+  }
+}

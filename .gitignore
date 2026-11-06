@@ -1,0 +1,11 @@
+﻿node_modules/
+dist/
+.idea/
+*.log
+public/assets/
+
+plan/
+.agents/
+deploy/
+
+AGENTS.md

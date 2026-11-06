@@ -1,0 +1,210 @@
+﻿/* 卡片网格（首页 & 文章列表共用） */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+/* 文章列表卡片 .post-card（长方形：左信息 + 右缩略图） */
+.post-card {
+  display: flex;
+  gap: var(--space-md);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.post-card__info {
+  flex: 1;
+  min-width: 0;
+}
+.post-card__date {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+.post-card__category {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+.post-card__title {
+  font-size: 1.15rem;
+  margin: var(--space-xs) 0;
+}
+.post-card__title a {
+  color: inherit;
+}
+.post-card__title a:hover {
+  text-decoration: underline;
+}
+.post-card__excerpt {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-card__tags {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-top: var(--space-sm);
+}
+.post-card__thumbnail {
+  flex-shrink: 0;
+  width: 160px;
+  height: 120px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+.post-card__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 旧版卡片（首页保留） */
+.card {
+  display: block;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  color: inherit;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+.card--placeholder {
+  opacity: 0.6;
+  cursor: default;
+}
+.card--placeholder:hover {
+  transform: none;
+  box-shadow: none;
+}
+.card-title {
+  font-size: 1.15rem;
+  margin: var(--space-sm) 0;
+}
+.card-title a {
+  color: inherit;
+}
+.card-date {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+.card-desc {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+.card-meta {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-top: var(--space-sm);
+}
+
+/* 标签样式 */
+.card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.15em 0.6em;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+/* 关于页大卡片 */
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+.about-card {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.about-card-title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+  .post-card {
+    flex-direction: column;
+  }
+  .post-card__thumbnail {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.about-card--link {
+  display: block;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.about-card--link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.about-card__title a {
+  color: inherit;
+}
+:root.dark .post-card {
+  background: var(--color-card-bg);
+}
+
+/* 文章列表容器：收窄卡片宽度 */
+.post-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 文章列表内的标题：加大与卡片间距 */
+.post-list .section-title {
+  margin-bottom: var(--space-md);
+}

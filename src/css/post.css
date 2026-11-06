@@ -1,0 +1,82 @@
+.post {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.post-header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+.post-title {
+  font-size: 2rem;
+  margin-top: var(--space-xs);
+}
+.post-date {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+.post-tags {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  flex-wrap: wrap;
+}
+.post-body h2 {
+  margin-top: var(--space-lg);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+.post-divider {
+  margin: var(--space-xl) 0 var(--space-md);
+}
+.post-back p {
+  margin-bottom: var(--space-xs);
+  font-size: 0.9rem;
+}
+.post-back a {
+  color: var(--color-text);
+}
+
+/* 分页导航 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+.pagination__btn {
+  display: inline-block;
+  padding: 0.35em 0.8em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.pagination__btn:hover {
+  background: var(--color-text-secondary);
+  color: var(--color-bg);
+  text-decoration: none;
+  border-color: var(--color-text-secondary);
+}
+.pagination__btn--current {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+.pagination__btn--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .post-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "name": "test260715",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.js --watch --serve",
+    "build": "node esbuild.config.js --prod",
+    "check": "npx @biomejs/biome check --write .",
+    "typecheck": "npx tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "deploy": "node scripts/deploy.js",
+    "sync": "node script/sync-models.js"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.4",
+    "esbuild": "0.28.1",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "marked": "^18.0.6"
+  }
+}

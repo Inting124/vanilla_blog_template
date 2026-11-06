@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{TITLE}}" />
+  {{KEYWORDS}}
+  <title>{{TITLE}} | 我的博客</title>
+  <link rel="icon" href="/asset light/crop.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/index.css" />
+  <script>(()=>{var t=localStorage.getItem("theme"),d=document.documentElement;if(t==="dark")d.classList.add("dark");else if(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches)d.classList.add("dark")})();</script>
+</head>
+<body>
+  <!-- 线框地球：由 src/globe.ts 以 Canvas 真 3D 投影渲染并注入此容器 -->
+  <div class="bg-globe" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/index.html" class="nav-logo">My Blog</a>
+      <button type="button" class="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/posts/index.html">文章</a></li>
+        <li><a href="/blogs/index.html">分类</a></li>
+        <li><a href="/tags/index.html">标签</a></li>
+        <li><a href="/about/index.html">关于</a></li>
+      </ul>
+      <div class="theme-toggle-wrapper">
+        <button type="button" class="theme-toggle" aria-label="切换主题模式" aria-expanded="false"> </button>
+        <div class="theme-menu" role="menu">
+          <button type="button" class="theme-menu-item" data-mode="light" role="menuitem">亮色</button>
+          <button type="button" class="theme-menu-item" data-mode="dark" role="menuitem">暗色</button>
+          <button type="button" class="theme-menu-item" data-mode="system" role="menuitem">跟随系统</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="blog-layout">
+    <aside class="blog-toc" id="blog-toc">
+      <nav class="toc-nav">
+        <h3 class="toc-title">{{TITLE}}</h3>
+        {{TOC}}
+      </nav>
+    </aside>
+
+    <main class="blog-main">
+      <article class="post">
+        <header class="post-header">
+          <time class="post-date" datetime="{{DATE}}">{{DATE_DISPLAY}}</time>
+          <h1 class="post-title">{{TITLE}}</h1>
+          <div class="post-tags">
+            {{TAGS}}
+          </div>
+        </header>
+
+        <div class="post-body">
+{{CONTENT}}
+        </div>
+
+        <hr class="post-divider" />
+        <nav class="post-back">
+          <p><a href="/posts/index.html">&larr; 返回文章列表</a></p>
+          <p><a href="/blogs/index.html">&larr; 返回分类</a></p>
+        </nav>
+      </article>
+    </main>
+  </div>
+
+  <div class="blog-scroll-btns">
+    <a href="#top" class="scroll-btn scroll-btn--top" title="回到顶部">&#65077;</a>
+    <a href="#bottom" class="scroll-btn scroll-btn--bottom" title="去到底部">&#65078;</a>
+  </div>
+  <div id="bottom"></div>
+
+  <footer class="site-footer">
+    <p>&copy; <span data-year>2025</span> ExampleName. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
+    <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+  </footer>
+
+  <script src="/index.js" defer></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
  * 生成标签列表页和各标签的独立博客列表页。
  */
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 
 function esc(s) {
   return s
@@ -70,10 +70,10 @@ function scanBlogs(sourceDir) {
               .filter(Boolean)
           : [];
 
-        const relPath = join(
-          'blogs',
-          full.replace(sourceDir + '\\blogs\\', '').replace(/\.md$/, '.html'),
-        ).replace(/\\/g, '/');
+        const relPath = join('blogs', relative(blogDir, full).replace(/\.md$/, '.html')).replace(
+          /\\/g,
+          '/',
+        );
         const postInfo = { title, date, href: `/${relPath}` };
         posts.push(postInfo);
 

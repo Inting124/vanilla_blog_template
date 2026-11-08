@@ -27,11 +27,11 @@ function parseFrontmatter(text) {
 }
 
 function getBasicTemplate() {
-  return readFileSync(join('model', 'basic model.html'), 'utf-8');
+  return readFileSync(join('model', 'basic_model.html'), 'utf-8');
 }
 
 function getTagCategoryTemplate() {
-  return readFileSync(join('model', 'tag category model.html'), 'utf-8');
+  return readFileSync(join('model', 'tag_category_model.html'), 'utf-8');
 }
 
 /** 按使用次数分配 HTML 标题等级 */

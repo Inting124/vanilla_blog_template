@@ -8,7 +8,7 @@ import './css/card.css';
 import './css/post.css';
 import './css/tags.css';
 import './css/category.css';
-import './css/blog-layout.css';
+import './css/blog_layout.css';
 import './css/bg.css';
 import './css/home.css';
 import './css/utilities.css';

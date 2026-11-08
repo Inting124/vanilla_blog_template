@@ -9,7 +9,7 @@
     "typecheck": "npx tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "deploy": "node scripts/deploy.js",
-    "sync": "node script/sync-models.js"
+    "sync": "node script/sync_models.js"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.4",

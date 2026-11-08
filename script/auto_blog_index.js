@@ -14,7 +14,7 @@ function esc(s) {
 }
 
 function getBasicTemplate() {
-  return readFileSync(join('model', 'basic model.html'), 'utf-8');
+  return readFileSync(join('model', 'basic_model.html'), 'utf-8');
 }
 
 /**

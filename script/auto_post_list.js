@@ -28,11 +28,11 @@ function parseFrontmatter(text) {
 }
 
 function getCardTemplate() {
-  return readFileSync(join('model', 'list card model.html'), 'utf-8');
+  return readFileSync(join('model', 'list_card_model.html'), 'utf-8');
 }
 
 function getBasicTemplate() {
-  return readFileSync(join('model', 'basic model.html'), 'utf-8');
+  return readFileSync(join('model', 'basic_model.html'), 'utf-8');
 }
 
 /** 从 .md 文件提取文章元数据 */

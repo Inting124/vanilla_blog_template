@@ -1,7 +1,7 @@
 /**
  * About 页面构建脚本
- * 将 public/about/ 下的 about site.md 和 about me.md 转为 HTML，
- * 以 basic model.html 为模板，输出到 dist/about/
+ * 将 public/about/ 下的 about_site.md 和 about_me.md 转为 HTML，
+ * 以 basic_model.html 为模板，输出到 dist/about/
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
@@ -29,7 +29,7 @@ function parseFrontmatter(text) {
 
 /** 关于页使用纯色背景：移除模板中的线框地球容器 */
 function getAboutTemplate() {
-  return readFileSync(join('model', 'basic model.html'), 'utf-8').replace(
+  return readFileSync(join('model', 'basic_model.html'), 'utf-8').replace(
     /\s*<!-- 线框地球[^>]*-->\s*<div class="bg-globe"[^>]*><\/div>/,
     '',
   );
@@ -38,7 +38,7 @@ function getAboutTemplate() {
 export function buildAbout(sourceDir, outDir) {
   const aboutDir = join(sourceDir, 'about');
   const template = getAboutTemplate();
-  const files = ['about site.md', 'about me.md'];
+  const files = ['about_site.md', 'about_me.md'];
 
   for (const file of files) {
     const mdPath = join(aboutDir, file);

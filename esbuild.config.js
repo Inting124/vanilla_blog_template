@@ -18,13 +18,13 @@ import {
 } from 'node:fs';
 import { join } from 'node:path';
 import * as esbuild from 'esbuild';
-import { buildAbout } from './script/auto about switch.js';
-import { buildBlogIndex } from './script/auto blog index.js';
-import { convertAllMd, convertMdFile } from './script/auto md to html.js';
-import { syncModels } from './script/auto model sync.js';
-import { deploy } from './script/auto path to url.js';
-import { buildPostList } from './script/auto post list.js';
-import { buildTagPages } from './script/auto tag show.js';
+import { buildAbout } from './script/auto_about_switch.js';
+import { buildBlogIndex } from './script/auto_blog_index.js';
+import { convertAllMd, convertMdFile } from './script/auto_md_to_html.js';
+import { syncModels } from './script/auto_model_sync.js';
+import { deploy } from './script/auto_path_to_url.js';
+import { buildPostList } from './script/auto_post_list.js';
+import { buildTagPages } from './script/auto_tag_show.js';
 
 const isProd = process.argv.includes('--prod');
 const isWatch = process.argv.includes('--watch');

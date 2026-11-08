@@ -1,6 +1,6 @@
 ﻿/**
  * 模板同步脚本
- * 将 basic model.html 的页首（header）和页脚（footer）同步到其他模板和 index.html
+ * 将 basic_model.html 的页首（header）和页脚（footer）同步到其他模板和 index.html
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -15,14 +15,14 @@ function syncFile(filePath, headerContent, footerContent) {
 }
 
 export function syncModels() {
-  const basicPath = join('model', 'basic model.html');
+  const basicPath = join('model', 'basic_model.html');
   const basicHtml = readFileSync(basicPath, 'utf-8');
 
   // 提取 header 和 footer
   const headerMatch = basicHtml.match(/<header[\s\S]*?<\/header>/);
   const footerMatch = basicHtml.match(/<footer[\s\S]*?<\/footer>/);
   if (!headerMatch || !footerMatch) {
-    console.error('  Model sync failed: header/footer not found in basic model.html');
+    console.error('  Model sync failed: header/footer not found in basic_model.html');
     return;
   }
 

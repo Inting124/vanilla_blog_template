@@ -83,21 +83,21 @@ desc: 一句话摘要，显示在列表卡片上。
 
 改完后开发模式会自动重建；生产环境执行 `npm run build`。列表、分类和标签会一起更新。
 
-关于页正文在 `public/about/about me.md` 与 `public/about/about site.md`。
+关于页正文在 `public/about/about_me.md` 与 `public/about/about_site.md`。
 
 ## 自定义站点
 
 1. 首页文案、姓名和简介：`public/index.html`
-2. 导航站名、页脚：先改 `model/basic model.html`，再执行 `npm run sync`
+2. 导航站名、页脚：先改 `model/basic_model.html`，再执行 `npm run sync`
 3. 配色与间距：`src/css/variables.css`
-4. 站点图标：`public/asset light/crop.svg`
+4. 站点图标：`public/asset_light/crop.svg`
 5. `package.json` 里的 `name` 改成仓库名
 6. `LICENSE` 里的版权署名改成自己的信息
 7. 示例文章：替换或删除 `public/blogs/` 下不需要的内容
 
 ## 图片与视频
 
-文章中使用以 `/assets/image/`、`/assets/video/` 开头的站点绝对路径引用媒体文件。生产构建会把这些前缀改写为图床地址，图床域名在 `script/auto path to url.js` 的 `IMAGE_HOST`，发布前请改成自己的地址。
+文章中使用以 `/assets/image/`、`/assets/video/` 开头的站点绝对路径引用媒体文件。生产构建会把这些前缀改写为图床地址，图床域名在 `script/auto_path_to_url.js` 的 `IMAGE_HOST`，发布前请改成自己的地址。
 
 媒体文件本身不纳入版本控制。
 
@@ -116,7 +116,7 @@ desc: 一句话摘要，显示在列表卡片上。
 │   ├── index.html          首页
 │   ├── about/              关于页
 │   ├── blogs/              按分类存放的文章 Markdown
-│   └── asset light/        站点图标
+│   └── asset_light/        站点图标
 ├── model/                  页面模板（页眉页脚、文章、列表、标签）
 ├── src/                    样式与脚本（入口 src/index.ts）
 ├── script/                 Markdown、列表、分类、标签与部署脚本

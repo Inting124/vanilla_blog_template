@@ -1,6 +1,6 @@
 ﻿/**
  * Markdown → HTML 构建脚本
- * 扫描 public/blogs/ 下所有 .md 文件，以 blog model.html 为模板生成完整 HTML 页面。
+ * 扫描 public/blogs/ 下所有 .md 文件，以 blog_model.html 为模板生成完整 HTML 页面。
  * 输出到 dist/blogs/{category_path}/{slug}.html
  */
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -11,7 +11,7 @@ import { marked } from 'marked';
 let _blogTemplate = null;
 function getBlogTemplate() {
   if (!_blogTemplate) {
-    _blogTemplate = readFileSync(join('model', 'blog model.html'), 'utf-8');
+    _blogTemplate = readFileSync(join('model', 'blog_model.html'), 'utf-8');
   }
   return _blogTemplate;
 }

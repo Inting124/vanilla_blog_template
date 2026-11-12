@@ -205,6 +205,7 @@ body.is-home .site-header {
 .home-page--sitemap {
   text-align: center;
   overflow: hidden;
+  min-height: 480px;
   align-items: flex-start;
   padding-top: var(--space-xl);
 }
@@ -229,10 +230,10 @@ body.is-home .site-header {
 .home-sitemap__tri {
   position: relative;
   width: 100%;
-  flex: 1;
-  min-height: 0;
-  aspect-ratio: 1 / 0.8;
-  margin: var(--space-lg) auto 0;
+  flex: 1 1 0;
+  min-height: 120px;
+  /* 为顶点卡片留出空间；节点与 SVG 使用同一个可伸缩区域。 */
+  margin: var(--space-lg) auto var(--space-xl);
   max-width: 420px;
 }
 
@@ -244,10 +245,12 @@ body.is-home .site-header {
   pointer-events: none;
   color: var(--color-text);
   z-index: 0;
+  overflow: visible;
 }
 
 .home-sitemap__node {
   position: absolute;
+  width: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -264,6 +267,7 @@ body.is-home .site-header {
     border-color 0.3s;
   opacity: 0;
   z-index: 1;
+  translate: -50% -50%;
 }
 
 .home-sitemap__node:hover {
@@ -275,20 +279,16 @@ body.is-home .site-header {
 .home-sitemap__node--top {
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
-}
-.home-sitemap__node--top:hover {
-  transform: translateX(-50%) translateY(-4px);
 }
 
 .home-sitemap__node--left {
-  bottom: 0;
+  top: 100%;
   left: 10%;
 }
 
 .home-sitemap__node--right {
-  bottom: 0;
-  right: 10%;
+  top: 100%;
+  left: 90%;
 }
 
 .home-sitemap__icon {
@@ -300,14 +300,18 @@ body.is-home .site-header {
   font-weight: 600;
 }
 
+.home-page--sitemap.active .home-sitemap__node {
+  opacity: 1;
+}
+
 .home-page--sitemap.active .home-sitemap__node--top {
-  animation: fadeSlideUpTop 0.5s ease forwards;
+  animation: fadeSlideUpTop 0.5s ease backwards;
 }
 .home-page--sitemap.active .home-sitemap__node--left {
-  animation: fadeSlideUpLeft 0.5s 0.15s ease forwards;
+  animation: fadeSlideUpLeft 0.5s 0.15s ease backwards;
 }
 .home-page--sitemap.active .home-sitemap__node--right {
-  animation: fadeSlideUpRight 0.5s 0.3s ease forwards;
+  animation: fadeSlideUpRight 0.5s 0.3s ease backwards;
 }
 
 .home-page--sitemap.active .home-sitemap__lines line {
@@ -394,33 +398,33 @@ body.is-home .site-header {
 @keyframes fadeSlideUpTop {
   from {
     opacity: 0;
-    transform: translate(-50%, calc(-50% + 24px));
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeSlideUpLeft {
   from {
     opacity: 0;
-    transform: translate(-50%, calc(50% + 24px));
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, 50%);
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeSlideUpRight {
   from {
     opacity: 0;
-    transform: translate(50%, calc(50% + 24px));
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
-    transform: translate(50%, 50%);
+    transform: translateY(0);
   }
 }
 

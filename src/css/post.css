@@ -26,6 +26,12 @@
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--color-border);
 }
+.post-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
 .post-divider {
   margin: var(--space-xl) 0 var(--space-md);
 }

@@ -13,6 +13,7 @@ import './css/bg.css';
 import './css/home.css';
 import './css/utilities.css';
 import { initGlobe } from './globe';
+import { initSitemapLines } from './sitemap';
 
 /**
  * 主脚本（体积目标：≤ 3KB 压缩后）
@@ -134,6 +135,7 @@ function initTocHighlight(): void {
 
 // DOM 就绪后执行初始化（defer 脚本确保 DOM 已解析）
 initPageAnimations();
+initSitemapLines();
 initGlobe();
 initMobileNav();
 initThemeToggle();
